@@ -22,7 +22,7 @@ async function main() {
   .then(json =>
     json.forEach(getText)
   )
-  document.getElementById("price").innerHTML = "I get this price with coingecko API Bitcoin $"+await getBitcoinPrice();
+  document.getElementById("price").innerHTML = await getBitcoinPrice();
   document.getElementById("list").innerHTML = text;
 }
 
@@ -34,7 +34,7 @@ async function getDetail(id) {
 }
 
 function getText(item, index) {
-  text += "<tr data-bs-toggle='modal' data-bs-target='#exampleModal'><td>"+item.id+"</td><td onClick='getDetail("+item.id+")'>"+item.title+"</td></tr>"; 
+  text += "<tr data-bs-toggle='modal' data-bs-target='#exampleModal' title='click to view detail'><td>"+item.id+"</td><td onClick='getDetail("+item.id+")'>"+item.title+"</td></tr>"; 
 }
 
 function changeModalData(json) {
